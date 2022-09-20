@@ -1,0 +1,82 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+:root {
+  font-size: min(calc(1em + 1vw), 4em);
+}
+
+body {
+  background: rebeccapurple;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    'header'
+    'nav'
+    'aside'
+    'main'
+    'footer';
+}
+
+header {
+  background: tomato;
+  grid-area: header;
+}
+
+nav {
+  background: olivedrab;
+  grid-area: nav;
+}
+
+main {
+  grid-area: main;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 1em;
+}
+main > * {
+  background: limegreen;
+  flex: 1 1 10em;
+}
+
+aside {
+  grid-area: aside;
+  background: goldenrod;
+}
+aside blockquote::before,
+aside blockquote::after {
+  content: '"';
+}
+
+footer {
+  grid-area: footer;
+  background: dodgerblue;
+}
+
+@media screen and (min-width: 50em) {
+  body {
+    background: hotpink;
+    grid-template-columns: 1fr 30em 1fr;
+    grid-template-areas:
+      '. header .'
+      '. nav .'
+      '. aside .'
+      '. main .'
+      '. footer .';
+  }
+}
+
+@media (min-width: 70em) {
+  body {
+    background: royalblue;
+    grid-template-columns: 1fr 30em 10em 1fr;
+    grid-template-areas:
+      '. header header .'
+      '. nav nav .'
+      '. main aside .'
+      'footer footer footer footer';
+  }
+}
